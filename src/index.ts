@@ -8,8 +8,14 @@ const server  = http.createServer(function(req,res){
     res.end('Hi there');
 })
 
-//creating instamce of websocket server
 
+//Using express 
+//------------------
+// const app = express();
+// const httpServer = app.listen(8080)
+// const wss = new WebSocketServer({server : httpServer});
+
+//creating instamce of websocket server
 const wss = new WebSocketServer({server});
 
 wss.on('connection',function connection(ws){
