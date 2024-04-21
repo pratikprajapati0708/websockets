@@ -9,12 +9,15 @@ function App() {
     const socket = new WebSocket('ws://localhost:8080');
     socket.onopen = () =>{
       console.log('Connected');
+      setSocket(socket);
     }
     socket.onmessage = (message)=>{
         console.log('Received message',message.data);
         setLatestMessage(message.data);
     }
-    setSocket(socket);
+   return()=>{
+    socket.close()
+   }
   },[])
 
   if(!socket){
